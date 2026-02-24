@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terreno à Venda — Vale da Estação, Domingos Martins</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-escuro: #1a2e1a;
+    --verde-medio: #2d5a27;
+    --verde-claro: #4a8c3f;
+    --verde-musgo: #5c7a3e;
+    --terra: #8b5e3c;
+    --bege: #f5f0e8;
+    --creme: #faf7f2;
+    --dourado: #c8a55a;
+    --branco: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Crimson Pro', serif;
+    background: var(--creme);
+    color: var(--verde-escuro);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--verde-escuro);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(180deg, rgba(10,20,10,0.55) 0%, rgba(10,20,10,0.2) 40%, rgba(10,20,10,0.7) 100%),
+      url('/mnt/user-data/uploads/WhatsApp_Image_20260224_at_09_33_21_2.jpeg') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: slowZoom 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.12); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    border: 1px solid var(--dourado);
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--dourado);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    margin-bottom: 2.8rem;
+    letter-spacing: 0.04em;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s ease both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #25D366;
+    color: #fff;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s ease both;
+  }
+
+  .hero-cta:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 2;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--verde-musgo);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--creme);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .intro-text p {
+    font-size: 1.2rem;
+    line-height: 1.85;
+    color: #3a3a2a;
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .intro-img {
+    position: relative;
+  }
+
+  .intro-img img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .intro-img::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    right: 16px;
+    bottom: 16px;
+    border: 2px solid var(--dourado);
+    z-index: 0;
+  }
+
+  .intro-img img { position: relative; z-index: 1; }
+
+  /* ── FEATURES ── */
+  .features {
+    background: var(--verde-escuro);
+    color: var(--branco);
+  }
+
+  .features .section-label { color: var(--dourado); }
+  .features .section-title { color: var(--branco); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.3s, border 0.3s;
+  }
+
+  .feature-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--dourado);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .feature-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    color: var(--dourado);
+  }
+
+  .feature-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  /* ── GALERIA ── */
+  .galeria {
+    background: var(--bege);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    cursor: zoom-in;
+  }
+
+  .gallery-grid img:hover { transform: scale(1.02); }
+
+  .gallery-grid .img-wide {
+    grid-column: span 2;
+    height: 300px;
+  }
+
+  /* ── DISTÂNCIAS ── */
+  .distancias {
+    background: var(--creme);
+  }
+
+  .dist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .dist-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.4rem;
+    border-left: 3px solid var(--dourado);
+    background: white;
+  }
+
+  .dist-km {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--verde-medio);
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .dist-km span {
+    font-size: 0.9rem;
+    font-family: 'Crimson Pro', serif;
+    font-weight: 300;
+  }
+
+  .dist-local {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.3;
+  }
+
+  /* ── MAPA ── */
+  .mapa {
+    background: var(--verde-escuro);
+    padding: 5rem 2rem;
+  }
+
+  .mapa .section-label { color: var(--dourado); }
+  .mapa .section-title { color: var(--branco); margin-bottom: 2.5rem; }
+
+  .mapa-frame {
+    width: 100%;
+    height: 420px;
+    border: none;
+    display: block;
+  }
+
+  /* ── CONTATO ── */
+  .contato {
+    background: var(--bege);
+    text-align: center;
+  }
+
+  .contato .section-title { margin-bottom: 0.5rem; }
+
+  .contato-sub {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .contato-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--verde-escuro);
+  }
+
+  .btn-wpp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #25D366;
+    color: white;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-wpp:hover { background: #1ebe5d; transform: translateY(-3px); }
+
+  .price-tag {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--dourado);
+    color: var(--terra);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--verde-escuro);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVO ── */
+  @media (max-width: 768px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .intro-img::before { display: none; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid .img-wide { grid-column: span 1; }
+    .gallery-grid img { height: 260px; }
+    section { padding: 4rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Terreno à Venda · Domingos Martins · ES</span>
+    <h1>Seu refúgio no coração<br>da <em>Serra Capixaba</em></h1>
+    <p class="hero-sub">Rota Turística do Vale da Estação · 2.500 m² · Natureza preservada</p>
+    <a href="https://wa.me/5527998610507?text=Olá%20Luciene!%20Vi%20o%20portfólio%20do%20terreno%20e%20gostaria%20de%20mais%20informações." class="hero-cta" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero saber mais
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="section-label">O Terreno</div>
+        <h2 class="section-title">Um paraíso verde esperando por você</h2>
+        <p>Com aproximadamente <strong>2.500 m²</strong>, este terreno está situado em uma das regiões mais encantadoras do Espírito Santo — na Rota Turística do Vale da Estação, em Domingos Martins.</p>
+        <p>Cercado por mata nativa, ar puro e uma paisagem que inspira, o local oferece infraestrutura completa: água de poço, energia elétrica e internet. Tudo que você precisa para transformar este espaço no lar ou refúgio dos seus sonhos.</p>
+        <p>Uma oportunidade rara de custo-benefício em uma localidade privilegiada, próxima a pontos turísticos, cervejarias artesanais e pousadas charmosas.</p>
+      </div>
+      <div class="intro-img">
+        <img src="/mnt/user-data/uploads/WhatsApp_Image_20260224_at_09_33_21_2.jpeg" alt="Vista aérea do terreno">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="section-label">Infraestrutura & Características</div>
+    <h2 class="section-title">Tudo pronto para você começar</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🌿</span>
+        <div class="feature-name">~2.500 m²</div>
+        <div class="feature-desc">Área generosa com excelente aproveitamento e mata nativa preservada</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💧</span>
+        <div class="feature-name">Água de Poço</div>
+        <div class="feature-desc">Abastecimento próprio de água limpa e abundante</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-name">Energia Elétrica</div>
+        <div class="feature-desc">Rede elétrica disponível no local</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📶</span>
+        <div class="feature-name">Internet</div>
+        <div class="feature-desc">Conectividade para trabalhar ou se entreter com conforto</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🛤️</span>
+        <div class="feature-name">Acesso por Estrada</div>
+        <div class="feature-desc">Estrada de acesso em boas condições até o terreno</div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏔️</span>
+        <div class="feature-name">Localização Turística</div>
+        <div class="feature-desc">Na Rota do Vale da Estação, cercado de pontos turísticos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria">
+  <div class="container">
+    <div class="section-label">Galeria de Fotos</div>
+    <h2 class="section-title">Veja com seus próprios olhos</h2>
+    <div class="gallery-grid">
+      <img src="/mnt/user-data/uploads/WhatsApp_Image_20260224_at_09_33_21_2.jpeg" alt="Vista aérea 1">
+      <img src="/mnt/user-data/uploads/WhatsApp_Image_20260224_at_09_33_21_1.jpeg" alt="Vista aérea 2">
+    </div>
+  </div>
+</section>
+
+<!-- DISTÂNCIAS -->
+<section class="distancias">
+  <div class="container">
+    <div class="section-label">Localização</div>
+    <h2 class="section-title">Perto de tudo que importa</h2>
+    <div class="dist-grid">
+      <div class="dist-item">
+        <div class="dist-km">5 <span>km</span></div>
+        <div class="dist-local">da <strong>BR-262</strong></div>
+      </div>
+      <div class="dist-item">
+        <div class="dist-km">12 <span>km</span></div>
+        <div class="dist-local">do centro de <strong>Domingos Martins</strong></div>
+      </div>
+      <div class="dist-item">
+        <div class="dist-km">32 <span>km</span></div>
+        <div class="dist-local">de <strong>Vitória</strong></div>
+      </div>
+      <div class="dist-item">
+        <div class="dist-km">51 <span>km</span></div>
+        <div class="dist-local">da <strong>Pedra Azul</strong></div>
+      </div>
+      <div class="dist-item">
+        <div class="dist-km">🏔️</div>
+        <div class="dist-local"><strong>Pedra dos Ventos</strong> nas proximidades</div>
+      </div>
+      <div class="dist-item">
+        <div class="dist-km">🍺</div>
+        <div class="dist-local"><strong>Cervejarias e Pousadas</strong> na região</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="mapa">
+  <div class="container">
+    <div class="section-label">Onde Fica</div>
+    <h2 class="section-title">Próximo, acessível e privilegiado</h2>
+    <iframe
+      class="mapa-frame"
+      src="https://maps.google.com/maps?q=Domingos+Martins,+ES,+Brasil&output=embed"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato">
+  <div class="container">
+    <div class="section-label">Fale Conosco</div>
+    <h2 class="section-title">Pronto para dar o próximo passo?</h2>
+    <p class="contato-sub">Entre em contato e venha conhecer pessoalmente este paraíso.</p>
+    <div class="contato-nome">Luciene Klipel</div>
+    <a href="https://wa.me/5527998610507?text=Olá%20Luciene!%20Vi%20o%20portfólio%20do%20terreno%20e%20gostaria%20de%20mais%20informações." class="btn-wpp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Conversar pelo WhatsApp
+    </a>
+    <br>
+    <div class="price-tag">💬 Consulte o preço · (27) 99861-0507</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 · Terreno Vale da Estação · Domingos Martins, ES · Luciene Klipel</p>
+</footer>
+
+</body>
+</html>
